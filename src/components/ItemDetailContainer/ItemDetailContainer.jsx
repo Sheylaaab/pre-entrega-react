@@ -10,7 +10,7 @@ const ItemDetailContainer = () => {
 
   useEffect(() => {
     setCargando(true);
-    fetch('/src/data/productos.json')
+    fetch('/data/productos.json')
       .then((res) => res.json())
       .then((datos) => {
         // Comparamos convirtiendo ambos a String para evitar fallas entre número y texto
