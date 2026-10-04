@@ -7,7 +7,7 @@ const ItemListContainer = ({ greeting }) => {
   const [cargando, setCargando] = useState(true);
 
   useEffect(() => {
-    fetch('/src/data/productos.json')
+    fetch('/data/productos.json')      
       .then((respuesta) => respuesta.json())
       .then((datos) => {
         setProductos(datos);
