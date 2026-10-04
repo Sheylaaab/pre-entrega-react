@@ -1,0 +1,12 @@
+.item-detail-container-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.detail-loading,
+.detail-error {
+  text-align: center;
+  padding: 4rem 1rem;
+  font-size: 1.1rem;
+  color: #64748b;
+}

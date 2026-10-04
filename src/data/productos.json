@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "titulo": "La Vegetariana",
+    "autor": "Han Kang",
+    "origen": "Corea del Sur",
+    "precio": 18500,
+    "categoria": "Ficción",
+    "imagen": "/images/la-vegetariana.jpg",
+    "descripcion": "Una impactante novela sobre una mujer que decide dejar de comer carne y las consecuencias de su decisión en su entorno familiar."
+  },
+  {
+    "id": "2",
+    "titulo": "Tokio Blues (Norwegian Wood)",
+    "autor": "Haruki Murakami",
+    "origen": "Japón",
+    "precio": 21000,
+    "categoria": "Ficción",
+    "imagen": "/images/tokio-blues.jpg",
+    "descripcion": "Una nostálgica historia sobre la juventud, la pérdida, la música y el despertar sexual en el Tokio de los años 60."
+  },
+  {
+    "id": "3",
+    "titulo": "El Problema de los Tres Cuerpos",
+    "autor": "Cixin Liu",
+    "origen": "China",
+    "precio": 24500,
+    "categoria": "Ciencia Ficción",
+    "imagen": "/images/tres-cuerpos.jpg",
+    "descripcion": "Una obra maestra de la ciencia ficción contemporánea ambientada en el trasfondo de la Revolución Cultural china."
+  },
+  {
+    "id": "4",
+    "titulo": "Indigno de ser Humano",
+    "autor": "Osamu Dazai",
+    "origen": "Japón",
+    "precio": 16000,
+    "categoria": "Clásicos",
+    "imagen": "/images/indigno.jpg",
+    "descripcion": "Un pilar de la literatura japonesa que explora la alienación, el aislamiento y la lucha interna de un hombre."
+  },
+  {
+    "id": "5",
+    "titulo": "Kim Ji-young, nacida en 1982",
+    "autor": "Cho Nam-joo",
+    "origen": "Corea del Sur",
+    "precio": 17500,
+    "categoria": "Ficción",
+    "imagen": "/images/kim-jiyoung.jpg",
+    "descripcion": "Una novela reveladora que retrata la vida cotidiana y las presiones sociales sobre la mujer en la Corea contemporánea."
+  },
+  {
+    "id": "6",
+    "titulo": "s",
+    "autor": "Lu Xun",
+    "origen": "China",
+    "precio": 15000,
+    "categoria": "Clásicos",
+    "imagen": "/images/lu-xun.jpg",
+    "descripcion": "Cuentos fundamentales del padre de la literatura china moderna que analizan con ironía la sociedad de su época."
+  }
+]

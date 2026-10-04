@@ -1,0 +1,27 @@
+:root {
+  --color-crudo: #fcfbf7;
+  --color-rojo: #8b0000;
+  --color-rojo-hover: #6a0000;
+  --color-negro: #1a1a1a;
+  --color-gris-texto: #4a4a4a;
+  --color-borde: #e8e2d5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-crudo);
+  color: var(--color-negro);
+  font-family: 'Noto Serif', Georgia, serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
