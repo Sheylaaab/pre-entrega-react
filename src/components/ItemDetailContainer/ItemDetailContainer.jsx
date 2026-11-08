@@ -1,42 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { obtenerProductoPorId } from '../../firebase/productosService';
 import ItemDetail from '../ItemDetail/ItemDetail';
-import './ItemDetailContainer.css';
 
 const ItemDetailContainer = () => {
   const [producto, setProducto] = useState(null);
   const [cargando, setCargando] = useState(true);
-  const { id } = useParams();
+  const { id } = useParams(); // <-- Debe coincidir con el :id de tu App.jsx
 
   useEffect(() => {
     setCargando(true);
-    fetch('/data/productos.json')
-      .then((res) => res.json())
-      .then((datos) => {
-        // Comparamos convirtiendo ambos a String para evitar fallas entre número y texto
-        const productoEncontrado = datos.find((item) => String(item.id) === String(id));
-        setProducto(productoEncontrado);
-        setCargando(false);
-      })
-      .catch((err) => {
-        console.error('Error al cargar el detalle:', err);
-        setCargando(false);
-      });
+    if (id) {
+      obtenerProductoPorId(id)
+        .then((res) => {
+          setProducto(res);
+        })
+        .catch((err) => {
+          console.error("Error al obtener detalle:", err);
+        })
+        .finally(() => {
+          setCargando(false);
+        });
+    }
   }, [id]);
 
-  if (cargando) {
-    return <div className="detail-loading">Cargando detalles del libro...</div>;
-  }
+  if (cargando) return <p style={{ textAlign: 'center', padding: '2rem' }}>Cargando detalle...</p>;
+  if (!producto) return <p style={{ textAlign: 'center', padding: '2rem' }}>El libro solicitado no existe.</p>;
 
-  if (!producto) {
-    return <div className="detail-error">El libro solicitado no existe.</div>;
-  }
-
-  return (
-    <section className="item-detail-container-wrapper">
-      <ItemDetail producto={producto} />
-    </section>
-  );
+  return <ItemDetail producto={producto} />;
 };
 
 export default ItemDetailContainer;

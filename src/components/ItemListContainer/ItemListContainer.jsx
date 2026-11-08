@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ItemList from '../ItemList/ItemList';
+import { obtenerProductos } from '../../firebase/productosService';
 import './ItemListContainer.css';
 
 const ItemListContainer = ({ greeting }) => {
@@ -7,14 +8,13 @@ const ItemListContainer = ({ greeting }) => {
   const [cargando, setCargando] = useState(true);
 
   useEffect(() => {
-    fetch('/data/productos.json')      
-      .then((respuesta) => respuesta.json())
+    obtenerProductos()
       .then((datos) => {
         setProductos(datos);
         setCargando(false);
       })
       .catch((error) => {
-        console.error('Error al cargar los productos:', error);
+        console.error("Error al cargar los productos de Firebase:", error);
         setCargando(false);
       });
   }, []);
@@ -22,7 +22,7 @@ const ItemListContainer = ({ greeting }) => {
   return (
     <section className="item-list-container">
       <h2 className="catalog-greeting">{greeting}</h2>
-      
+
       {cargando ? (
         <div className="loading-spinner">Cargando literatura asiática...</div>
       ) : (

@@ -1,21 +1,39 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Layout from './components/Layout/Layout';
-import Home from './pages/Home';
+import { CartProvider } from './context/CartContext';
+import { AuthProvider } from './context/AuthContext';
+import Header from './components/Header/Header';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-import Cart from './pages/Cart';
+import CartView from './components/CartView/CartView';
+import Login from './components/Login/Login';
+import AdminProductForm from './components/AdminProductForm/AdminProductForm';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
-    <Layout>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/productos" element={<ItemListContainer greeting="Catálogo de Literatura Oriental" />} />
-        <Route path="/producto/:id" element={<ItemDetailContainer />} />
-        <Route path="/carrito" element={<Cart />} />
-      </Routes>
-    </Layout>
+    <AuthProvider>
+      <CartProvider>
+        <Header />
+        <Routes>
+          <Route path="/" element={<ItemListContainer />} />
+          <Route path="/categoria/:categoriaId" element={<ItemListContainer />} />
+          <Route path="/producto/:id" element={<ItemDetailContainer />} />
+          <Route path="/carrito" element={<CartView />} />
+          <Route path="/login" element={<Login />} />
+          <Route 
+            path="/admin" 
+            element={
+              <ProtectedRoute>
+                <AdminProductForm />
+              </ProtectedRoute>
+            } 
+          />
+        </Routes>
+        <Footer />
+      </CartProvider>
+    </AuthProvider>
   );
 }
 

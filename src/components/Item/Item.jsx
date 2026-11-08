@@ -3,20 +3,24 @@ import { Link } from 'react-router-dom';
 import './Item.css';
 
 const Item = ({ producto }) => {
-  const { id, titulo, autor, origen, precio, categoria, imagen } = producto;
+  const { id, titulo, nombre, autor, origen, precio, categoria, imagen } = producto;
+  
+  const tituloMostrar = nombre || titulo;
 
   return (
     <div className="item-card">
-      <div className="item-badge">{origen}</div>
+      {origen && <div className="item-badge">{origen}</div>}
       <div className="item-image-container">
-        <img src={imagen} alt={titulo} className="item-image" />
+        <img src={imagen} alt={tituloMostrar} className="item-image" />
       </div>
       <div className="item-details">
-        <span className="item-category">{categoria}</span>
-        <h3 className="item-title">{titulo}</h3>
-        <p className="item-author">{autor}</p>
+        {categoria && <span className="item-category">{categoria}</span>}
+        <h3 className="item-title">{tituloMostrar}</h3>
+        {autor && <p className="item-author">{autor}</p>}
         <div className="item-footer">
-          <span className="item-price">${precio.toLocaleString('es-AR')}</span>
+          <span className="item-price">
+            ${precio ? precio.toLocaleString('es-AR') : 0}
+          </span>
           <Link to={`/producto/${id}`} className="item-button">
             Ver Detalle
           </Link>
